@@ -10,12 +10,21 @@ import { CoursesService } from './courses.service';
             {{course}}
         </li>
     </ul>
+    <table>
+        <tr>
+            <td [attr.colspan]="colSpan"></td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" [class.active]="isActive">Save</button>  
+    <button [style.backgroundColor]="isActive? 'blue' : 'white'">Style Binding</button>
     `
 
 })
 export class CoursesComponent {
     title= "List of Courses";
+    colSpan = 2;
     courses;
+    isActive=false;
     
     constructor(service: CoursesService) {
         this.courses = service.getCourses();

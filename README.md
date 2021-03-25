@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
 Tilly Wright - Learning Angular
-Goal to Pro - By July 1, 2021
+Goal To Complete - By July 1, 2021
 
 ## Development server
 
