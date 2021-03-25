@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import { CoursesService } from './courses.service';
-// import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'courses',
@@ -25,6 +24,13 @@ import { CoursesService } from './courses.service';
     </div>
 
     <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+    <div>
+        {{course.title | lowercase}} <br/>
+        {{course.students | number}}<br/>
+        {{course.rating | number:'1.2-2'}}<br/>
+        {{course.price | currency:'AUD':true:'3.2-2'}} <br/>
+        {{course.releaseDate | date:'shortDate'}}
+    </div>
     `
 
 })
@@ -39,6 +45,14 @@ export class CoursesComponent {
     email = "me@example.com"; 
     onKeyUp() {
         console.log(this.email)
+    }
+
+    course = {
+        title: "The Complete Angular Course",
+        rating: 4.9745,
+        students: 30123,
+        price: 190.95,
+        releaseDate: new Date(2016, 3, 1)
     }
 
 
