@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import { CoursesService } from './courses.service';
+// import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'courses',
@@ -23,7 +24,7 @@ import { CoursesService } from './courses.service';
     >Style Binding</button>
     </div>
 
-    <input #email (keyup.enter)="onKeyUp(email.value)" />
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
     `
 
 })
@@ -34,8 +35,10 @@ export class CoursesComponent {
     isActive=false;
     onDivClick() {console.log("Div was clicked.")}
     onSave($event:any) {console.log("Button was clicked info", $event)}
-    onKeyUp(email: any) {
-        console.log(email)
+    
+    email = "me@example.com"; 
+    onKeyUp() {
+        console.log(this.email)
     }
 
 
