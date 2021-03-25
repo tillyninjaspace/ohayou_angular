@@ -29,7 +29,8 @@ import { CoursesService } from './courses.service';
         {{course.students | number}}<br/>
         {{course.rating | number:'1.2-2'}}<br/>
         {{course.price | currency:'AUD':true:'3.2-2'}} <br/>
-        {{course.releaseDate | date:'shortDate'}}
+        {{course.releaseDate | date:'shortDate'}}<br/>
+        {{'Summary: ' + text | summary: 20 }}
     </div>
     `
 
@@ -55,6 +56,7 @@ export class CoursesComponent {
         releaseDate: new Date(2016, 3, 1)
     }
 
+    text = `Wonderful Text`
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
