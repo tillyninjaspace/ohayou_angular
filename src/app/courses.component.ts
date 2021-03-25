@@ -16,7 +16,14 @@ import { CoursesService } from './courses.service';
         </tr>
     </table>
     <button class="btn btn-primary" [class.active]="isActive">Save</button>  
-    <button [style.backgroundColor]="isActive? 'blue' : 'white'">Style Binding</button>
+    
+    <div (click)="onDivClick()">
+    <button [style.backgroundColor]="isActive? 'blue' : 'green'"
+    (click)="onSave($event)"
+    >Style Binding</button>
+    </div>
+
+    <input #email (keyup.enter)="onKeyUp(email.value)" />
     `
 
 })
@@ -25,7 +32,13 @@ export class CoursesComponent {
     colSpan = 2;
     courses;
     isActive=false;
-    
+    onDivClick() {console.log("Div was clicked.")}
+    onSave($event:any) {console.log("Button was clicked info", $event)}
+    onKeyUp(email: any) {
+        console.log(email)
+    }
+
+
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
     }
